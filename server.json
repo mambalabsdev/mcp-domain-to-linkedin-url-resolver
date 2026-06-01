@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.mambabuilt/mcp-domain-to-linkedin-url-resolver",
+  "description": "Resolves a company domain or name to its LinkedIn URL with confidence and firmographics.",
+  "version": "1.0.1",
+  "repository": {
+    "url": "https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mambalabsdev/mcp-domain-to-linkedin-url-resolver",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "APIFY_TOKEN",
+          "description": "Apify API token from https://console.apify.com/account/integrations",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
