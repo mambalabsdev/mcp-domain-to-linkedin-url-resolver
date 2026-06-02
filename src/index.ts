@@ -25,10 +25,20 @@ const server = new McpServer({
   version: pkg.version,
 });
 
-server.tool(
+server.registerTool(
   "resolve_linkedin_url",
-  "Resolve a company domain or name to its LinkedIn company URL. Returns the LinkedIn URL with a confidence score, plus firmographics such as employee count, industry, and headquarters, and social links, as a flat, Clay-ready JSON row. Provide at least one of company_domain or company_name.",
   {
+    title: "Resolve LinkedIn URL",
+    description:
+      "Resolve a company domain or name to its LinkedIn company URL. Returns the LinkedIn URL with a confidence score, plus firmographics such as employee count, industry, and headquarters, and social links, as a flat, Clay-ready JSON row. Provide at least one of company_domain or company_name. Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
+    annotations: {
+      title: "Resolve LinkedIn URL",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: true,
+    },
+    inputSchema: {
     company_domain: z
       .string()
       .optional()
@@ -39,6 +49,7 @@ server.tool(
       .string()
       .optional()
       .describe("Company name. Required if company_domain is not provided."),
+  },
   },
   async ({ company_domain, company_name }) => {
     if (
