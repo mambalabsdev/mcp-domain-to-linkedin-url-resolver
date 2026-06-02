@@ -53,6 +53,30 @@ Provide at least one of the two. If both are given, the domain takes priority.
 
 The tool returns the actor's flat JSON row, including the resolved LinkedIn company URL, a confidence score, firmographics such as employee count, industry, and headquarters, and social links. See the Apify Store page for the full output schema.
 
+## Example output
+
+```json
+{
+  "company_domain": "linear.app",
+  "company_name": "Linear",
+  "linkedin_company_url": "https://www.linkedin.com/company/linear-app",
+  "linkedin_slug": "linear-app",
+  "resolution_method": "google_search",
+  "confidence": "high",
+  "industry": "Software Development",
+  "employee_count_approx": "201",
+  "hq_location": "San Francisco, California, United States",
+  "run_date": "2026-05-28"
+}
+```
+
+## Features
+
+- Google search plus URL pattern matching for high accuracy
+- Fixes the LinkedIn URL gaps in Clay native enrichment
+- Confidence scoring (high, medium, low) and resolution_method
+- Firmographics (employee count, industry, HQ) plus social links
+
 ## Full actor documentation
 
 This server is a thin client and holds no resolution logic. For the complete input and output reference, pricing, and run history, see the Apify Store page:
