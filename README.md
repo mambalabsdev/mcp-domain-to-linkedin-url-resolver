@@ -1,6 +1,6 @@
 # Domain to LinkedIn URL Resolver MCP Server
 
-[![Smithery](https://smithery.ai/badge/mambabuilt/mcp-domain-to-linkedin-url-resolver)](https://smithery.ai/servers/mambabuilt/mcp-domain-to-linkedin-url-resolver)
+[![Smithery](https://smithery.ai/badge/mambabuilt/mcp-domain-to-linkedin-url-resolver)](https://smithery.ai/servers/mambabuilt/mcp-domain-to-linkedin-url-resolver) [![mcp-domain-to-linkedin-url-resolver MCP server](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver/badges/card.svg)](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver)
 
 An MCP server that resolves a company domain or name to its LinkedIn company URL. It wraps the Mamba Labs Domain to LinkedIn URL Resolver actor on Apify and returns a Clay-ready flat JSON row to any MCP client.
 
