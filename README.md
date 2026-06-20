@@ -1,6 +1,6 @@
 # Domain to LinkedIn URL Resolver MCP Server
 
-[![Smithery](https://smithery.ai/badge/mambabuilt/mcp-domain-to-linkedin-url-resolver)](https://smithery.ai/server/mambabuilt/mcp-domain-to-linkedin-url-resolver) [![Glama score](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver/badges/score.svg)](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver) [![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0%2Fservers%3Fsearch%3Dcom.mambabuilt%252Fmcp-domain-to-linkedin-url-resolver%26limit%3D1&query=%24.servers%5B0%5D._meta%5B%22io.modelcontextprotocol.registry%2Fofficial%22%5D.status&label=mcp%20registry&color=blue)](https://registry.modelcontextprotocol.io/v0/servers?search=com.mambabuilt/mcp-domain-to-linkedin-url-resolver&limit=1) [![npm version](https://img.shields.io/npm/v/@mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://www.npmjs.com/~mambalabsdev) [![npm downloads](https://img.shields.io/npm/dm/@mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://www.npmjs.com/~mambalabsdev) [![license](https://img.shields.io/github/license/mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://github.com/mambalabsdev) [![mcpservers.org](https://img.shields.io/badge/mcpservers.org-listed-blue)](https://mcpservers.org/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver)
+[![Smithery](https://smithery.ai/badge/@mambabuilt/mcp-domain-to-linkedin-url-resolver)](https://smithery.ai/server/@mambabuilt/mcp-domain-to-linkedin-url-resolver) [![Glama score](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver/badges/score.svg)](https://glama.ai/mcp/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver) [![MCP Registry](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fregistry.modelcontextprotocol.io%2Fv0%2Fservers%3Fsearch%3Dcom.mambabuilt%252Fmcp-domain-to-linkedin-url-resolver%26limit%3D1&query=%24.servers%5B0%5D._meta%5B%22io.modelcontextprotocol.registry%2Fofficial%22%5D.status&label=mcp%20registry&color=blue)](https://registry.modelcontextprotocol.io/v0/servers?search=com.mambabuilt/mcp-domain-to-linkedin-url-resolver&limit=1) [![npm version](https://img.shields.io/npm/v/@mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://www.npmjs.com/package/@mambalabsdev/mcp-domain-to-linkedin-url-resolver) [![npm downloads](https://img.shields.io/npm/dm/@mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://www.npmjs.com/package/@mambalabsdev/mcp-domain-to-linkedin-url-resolver) [![license](https://img.shields.io/github/license/mambalabsdev/mcp-domain-to-linkedin-url-resolver)](https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver/blob/main/LICENSE) [![mcpservers.org](https://img.shields.io/badge/mcpservers.org-listed-blue)](https://mcpservers.org/servers/mambalabsdev/mcp-domain-to-linkedin-url-resolver)
 
 An MCP server that resolves a company domain or name to its LinkedIn company URL. It wraps the Mamba Labs Domain to LinkedIn URL Resolver actor on Apify and returns a Clay-ready flat JSON row to any MCP client.
 
@@ -83,20 +83,24 @@ This server is a thin client and holds no resolution logic. For the complete inp
 
 https://apify.com/mambalabs/domain-to-linkedin-url-resolver
 
+---
+
 ## Mamba Labs GTM Suite
 
-This is one of six actors in the Mamba Labs GTM Suite, covering hiring signals, tech stack detection, signal aggregation, job board keyword scanning, LinkedIn URL resolution, and ICP scoring. See them all at https://apify.com/mambalabs.
+This server is part of the **Mamba Labs GTM Suite**, a fleet of eight specialized MCP servers for go-to-market signal intelligence, each backed by a dedicated Apify actor.
 
-## Related Mamba Labs MCP servers
+| Actor | Immutable Actor ID |
+|---|---|
+| [GTM Hiring Signal Scraper](https://console.apify.com/actors/D7O1SA2EqwHGsGr1P) | `D7O1SA2EqwHGsGr1P` |
+| [GTM Tech Stack Signal Enrichment](https://console.apify.com/actors/qyd7nNyqFPelQViBx) | `qyd7nNyqFPelQViBx` |
+| [GTM Signals Aggregator](https://console.apify.com/actors/xKdRfnfFNkdMpFuNs) | `xKdRfnfFNkdMpFuNs` |
+| [Job Board Keyword Signal Scanner](https://console.apify.com/actors/4DvqpvhMR74NLcDDY) | `4DvqpvhMR74NLcDDY` |
+| [Domain to LinkedIn URL Resolver](https://console.apify.com/actors/3HtnSaqPHOg1Qg5gx) | `3HtnSaqPHOg1Qg5gx` |
+| [ICP Fit Scorer](https://console.apify.com/actors/W161DT8W4kW55dMFh) | `W161DT8W4kW55dMFh` |
+| [Domain Deliverability Checker](https://console.apify.com/actors/0tVgxI7A6o9jMlxmc) | `0tVgxI7A6o9jMlxmc` |
+| [Company Firmographic Enricher](https://console.apify.com/actors/YlUtLWjfPpqykmB8g) | `YlUtLWjfPpqykmB8g` |
 
-The rest of the Mamba Labs GTM toolkit, each as its own MCP server:
-
-- [Mamba Labs GTM Suite (all six tools)](https://github.com/mambalabsdev/mcp-gtm-suite)
-- [GTM Hiring Signal Scraper](https://github.com/mambalabsdev/mcp-gtm-hiring-signal-scraper)
-- [GTM Tech Stack Signal Enrichment](https://github.com/mambalabsdev/mcp-gtm-tech-stack-signal-scraper)
-- [GTM Signals Aggregator](https://github.com/mambalabsdev/mcp-gtm-signals-aggregator)
-- [Job Board Keyword Signal Scanner](https://github.com/mambalabsdev/mcp-job-board-keyword-signal-scanner)
-- [ICP Fit Scorer](https://github.com/mambalabsdev/mcp-icp-fit-scorer)
+> Built by [Mamba Labs](https://github.com/mambalabsdev) | [npm](https://www.npmjs.com/org/mambalabsdev) | [Apify Store](https://apify.com/mambabuilt)
 
 ## License
 
