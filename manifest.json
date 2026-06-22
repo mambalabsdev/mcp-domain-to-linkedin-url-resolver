@@ -1,0 +1,37 @@
+{
+  "manifest_version": "0.3",
+  "name": "mcp-domain-to-linkedin-url-resolver",
+  "version": "1.0.5",
+  "description": "MCP server for Domain to LinkedIn URL Resolver. Resolves a company domain or name to its LinkedIn company URL with confidence scoring and firmographics via Apify. Clay-ready output.",
+  "author": {
+    "name": "Mamba Labs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "build/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/build/index.js"
+      ],
+      "env": {
+        "APIFY_TOKEN": "${user_config.apify_token}"
+      }
+    }
+  },
+  "user_config": {
+    "apify_token": {
+      "type": "string",
+      "title": "Apify API Token",
+      "description": "Apify API token for running the actor",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
