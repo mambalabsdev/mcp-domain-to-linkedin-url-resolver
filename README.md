@@ -4,6 +4,20 @@
 
 An MCP server that resolves a company domain or name to its LinkedIn company URL. It wraps the Mamba Labs Domain to LinkedIn URL Resolver actor on Apify and returns a Clay-ready flat JSON row to any MCP client.
 
+## What's Inside
+
+- [What it does](#what-it-does)
+- [Quick start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Example prompts](#example-prompts)
+- [Inputs](#inputs)
+- [Output](#output)
+- [Example output](#example-output)
+- [Features](#features)
+- [Full actor documentation](#full-actor-documentation)
+- [Mamba Labs GTM Suite](#mamba-labs-gtm-suite)
+- [License](#license)
+
 ## What it does
 
 Give it a company domain or a company name and it finds the matching LinkedIn company page, with a confidence score so you know how much to trust it. You also get firmographics such as employee count, industry, and headquarters, plus social links, all in one flat row ready for Clay, a CRM, or an AI agent workflow. All of the resolution runs on Apify. This package is a thin client that calls the actor and hands back the result.
