@@ -49,9 +49,21 @@ server.registerTool(
       .string()
       .optional()
       .describe("Company name. Required if company_domain is not provided."),
+    includeFirmographics: z
+      .enum(["false", "true"])
+      .optional()
+      .describe(
+        "When \"true\", also fetches the public LinkedIn company page to add employee_count_approx, industry, hq_location, follower_count and company_description. Off by default because it is the most expensive step, a full residential-proxied page fetch. The firmographic fields are present but null when it is off. Sent as a string for Clay compatibility.",
+      ),
+    skipCache: z
+      .enum(["false", "true"])
+      .optional()
+      .describe(
+        "When \"false\", the default, a successful resolution is cached for 7 days and reused, skipping the residential HEAD and the search work. Set \"true\" to force a fresh resolution. Sent as a string for Clay compatibility.",
+      ),
   },
   },
-  async ({ company_domain, company_name }) => {
+  async ({ company_domain, company_name, includeFirmographics, skipCache }) => {
     if (
       (company_domain === undefined || company_domain === "") &&
       (company_name === undefined || company_name === "")
@@ -74,6 +86,8 @@ server.registerTool(
     const input: Record<string, unknown> = {};
     if (company_domain !== undefined) input.company_domain = company_domain;
     if (company_name !== undefined) input.company_name = company_name;
+    if (includeFirmographics !== undefined) input.includeFirmographics = includeFirmographics;
+    if (skipCache !== undefined) input.skipCache = skipCache;
 
     let response: Response;
     try {
