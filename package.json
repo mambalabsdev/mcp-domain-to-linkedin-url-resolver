@@ -9,7 +9,8 @@
   "files": [
     "build",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "tsc && chmod +x build/index.js",
@@ -41,7 +42,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
-    "typescript": "^5.6.0"
+    "typescript": "5.9.3"
   },
   "mcpName": "com.mambabuilt/mcp-domain-to-linkedin-url-resolver"
 }
