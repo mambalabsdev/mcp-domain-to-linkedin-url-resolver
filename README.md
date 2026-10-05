@@ -14,13 +14,14 @@ An MCP server that resolves a company domain or name to its LinkedIn company URL
 - [Output](#output)
 - [Example output](#example-output)
 - [Features](#features)
+- [Pricing](#pricing)
 - [Full actor documentation](#full-actor-documentation)
 - [Mamba Labs GTM Suite](#mamba-labs-gtm-suite)
 - [License](#license)
 
 ## What it does
 
-Give it a company domain or a company name and it finds the matching LinkedIn company page, with a confidence score so you know how much to trust it. You also get firmographics such as employee count, industry, and headquarters, plus social links, all in one flat row ready for Clay, a CRM, or an AI agent workflow. All of the resolution runs on Apify. This package is a thin client that calls the actor and hands back the result.
+Give it a company domain or a company name and it finds the matching LinkedIn company page, with a confidence of high, medium, or low so you know how much to trust it, plus the company's Facebook, Instagram, X, and YouTube links, all in one flat row. Firmographics (employee count, industry, headquarters, follower count, description) are added when you set `includeFirmographics` to true; they are off by default and null when off. Pass `domains` to resolve a list in one call ready for Clay, a CRM, or an AI agent workflow. All of the resolution runs on Apify. This package is a thin client that calls the actor and hands back the result.
 
 ## Quick start
 
@@ -54,20 +55,27 @@ Get your token at https://console.apify.com/account/integrations, paste it in, a
 - "Find the LinkedIn page for stripe.com."
 - "What is the LinkedIn company URL for openai.com? Include the confidence score."
 - "Resolve the company named Figma to its LinkedIn URL and firmographics."
-- "Get the LinkedIn URL, employee count, and industry for datadoghq.com."
+- "Get the LinkedIn URL, employee count, and industry for datadoghq.com, with firmographics on."
+- "Resolve the LinkedIn pages for stripe.com, notion.so, and figma.com."
 
 ## Inputs
 
 - `company_domain` (optional): the bare company domain, no `https://` and no trailing slash. Example: `stripe.com`
 - `company_name` (optional): the company name.
+- `domains` (optional, array): a list of bare domains resolved in one run, one row per domain.
+- `batchSize` (optional, integer): how many domains from the list are resolved at once. 1 to 10. Default 2.
+- `includeFirmographics` (optional, boolean): also read the public LinkedIn company page for `employee_count_approx`, `industry`, `hq_location`, `follower_count`, and `company_description`. Default false. Those fields are null when it is off. The string forms `"true"` and `"false"` are accepted too.
+- `skipCache` (optional, boolean): ignore the 7 day cache and resolve again. Default false. The string forms are accepted too.
 
-Provide at least one of the two. If both are given, the domain takes priority.
+Provide at least one of `company_domain`, `company_name`, or `domains`. If a domain and a name are both given, the domain takes priority.
 
 ## Output
 
-The tool returns the actor's flat JSON row, including the resolved LinkedIn company URL, a confidence score, firmographics such as employee count, industry, and headquarters, and social links. See the Apify Store page for the full output schema.
+The tool returns the actor's flat JSON row per company: `company_domain`, `company_name`, `linkedin_company_url`, `linkedin_slug`, `resolution_method`, `confidence` (high, medium, or low), `facebook_url`, `instagram_url`, `twitter_url`, `youtube_url`, the firmographic fields `employee_count_approx`, `industry`, `hq_location`, `follower_count`, `company_description`, `logo_url`, and `founded_year` (null unless `includeFirmographics` is true), `slug_mismatch`, `run_date`, `degraded`, and `degradation_reason`.
 
 ## Example output
+
+Run with `includeFirmographics` set to true.
 
 ```json
 {
@@ -89,7 +97,19 @@ The tool returns the actor's flat JSON row, including the resolved LinkedIn comp
 - Google search plus URL pattern matching for high accuracy
 - Fixes the LinkedIn URL gaps in Clay native enrichment
 - Confidence scoring (high, medium, low) and resolution_method
-- Firmographics (employee count, industry, HQ) plus social links
+- Social links on every row; firmographics (employee count, industry, HQ) when `includeFirmographics` is true
+- One domain or a list per call
+
+## Pricing
+
+Domain to LinkedIn URL Resolver is pay per event on Apify.
+
+| Event | Price | Fires when |
+| --- | ---: | --- |
+| `apify-actor-start` | $0.00005 | Once per run, on start, one event per GB of memory (minimum one). Apify's start event. |
+| `apify-default-dataset-item` | $0.006 (FREE tier), down to $0.0051 on GOLD and above | Once per row written to the dataset. |
+
+The tool starts the actor run and polls it to a finished status, so a long run is not cut off at 300 seconds. A run that does not succeed comes back as an error with its run ID and status.
 
 ## Full actor documentation
 
