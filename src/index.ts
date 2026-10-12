@@ -210,7 +210,7 @@ server.registerTool(
   {
     title: "Resolve LinkedIn URL",
     description:
-      "Resolve a company domain or name, or a list of domains, to the LinkedIn company URL. Returns one flat, Clay-ready JSON row per company with the LinkedIn URL and slug, a confidence of high, medium, or low, the resolution method, and Facebook, Instagram, X, and YouTube links. Firmographics (employee count, industry, headquarters, follower count, description) are added only when includeFirmographics is true; with it off those fields are present but null. Successful resolutions are cached for 7 days unless skipCache is true. Use it when you have a domain or a name and need the LinkedIn company page; it does not find people. Provide company_domain, company_name, or domains. A run that does not succeed is returned as an error with its run ID. Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
+      "Resolve a company domain or name, or a list of domains, to the LinkedIn company URL. Returns one flat, Clay-ready JSON row per company with the LinkedIn URL and slug, a confidence of high, medium, or low, the resolution method, and Facebook, Instagram, X, and YouTube links. The URL is read from public search results; no request is ever sent to LinkedIn. Firmographics (employee count, industry, headquarters, follower count, description) are read from search result snippets only when includeFirmographics is true; with it off, or when no snippet states them, those fields are null. Successful resolutions are cached for 7 days unless skipCache is true. Use it when you have a domain or a name and need the LinkedIn company page; it does not find people. Provide company_domain, company_name, or domains. A run that does not succeed is returned as an error with its run ID. Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
     annotations: {
       title: "Resolve LinkedIn URL",
       readOnlyHint: true,
@@ -243,7 +243,7 @@ server.registerTool(
       includeFirmographics: flag
         .optional()
         .describe(
-          "When true, also fetches the public LinkedIn company page to add employee_count_approx, industry, hq_location, follower_count, and company_description. Off by default because it is the most expensive step, a full residential proxied page fetch. The firmographic fields are present but null when it is off. Accepts true or false, or the strings \"true\" and \"false\". Default: false.",
+          "When true, also reads firmographics from search result snippets about the LinkedIn company page: follower_count and company_description for most established companies, and employee_count_approx, industry, and hq_location when a snippet states them. No request is sent to LinkedIn. Off by default because it can add a search. The firmographic fields are null when it is off or when no snippet states them. Accepts true or false, or the strings \"true\" and \"false\". Default: false.",
         ),
       skipCache: flag
         .optional()

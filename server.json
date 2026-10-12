@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.mambabuilt/mcp-domain-to-linkedin-url-resolver",
-  "description": "Resolves a company domain or name to its LinkedIn URL with confidence and firmographics.",
-  "version": "1.2.1",
+  "description": "Resolves a company domain or name to its LinkedIn URL from search results, with confidence.",
+  "version": "1.2.2",
   "repository": {
     "url": "https://github.com/mambalabsdev/mcp-domain-to-linkedin-url-resolver",
     "source": "github"
@@ -11,7 +11,7 @@
     {
       "registryType": "npm",
       "identifier": "@mambalabsdev/mcp-domain-to-linkedin-url-resolver",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "transport": {
         "type": "stdio"
       },
