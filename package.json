@@ -42,7 +42,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.6.5",
     "typescript": "5.9.3"
   },
   "mcpName": "com.mambabuilt/mcp-domain-to-linkedin-url-resolver"
