@@ -1,6 +1,6 @@
 {
   "name": "@mambalabsdev/mcp-domain-to-linkedin-url-resolver",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "MCP server for Domain to LinkedIn URL Resolver. Resolves a company domain or name to its LinkedIn company URL from public search results, with confidence scoring and optional firmographics from search snippets. Never requests a LinkedIn page. Runs on Apify. Clay-ready output.",
   "type": "module",
   "bin": {
