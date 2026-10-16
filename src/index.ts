@@ -213,12 +213,13 @@ server.registerTool(
       "Resolve a company domain or name, or a list of domains, to the LinkedIn company URL. Returns one flat, Clay-ready JSON row per company with the LinkedIn URL and slug, a confidence of high, medium, or low, the resolution method, and Facebook, Instagram, X, and YouTube links. The URL is read from public search results; no request is ever sent to LinkedIn. Firmographics (employee count, industry, headquarters, follower count, description) are read from search result snippets only when includeFirmographics is true; with it off, or when no snippet states them, those fields are null. Successful resolutions are cached for 7 days unless skipCache is true. Use it when you have a domain or a name and need the LinkedIn company page; it does not find people. Provide company_domain, company_name, or domains. A run that does not succeed is returned as an error with its run ID. Read-only; requires an APIFY_TOKEN and consumes Apify credits per call.",
     annotations: {
       title: "Resolve LinkedIn URL",
-      readOnlyHint: true,
+      readOnlyHint: false,
       destructiveHint: false,
       idempotentHint: true,
       openWorldHint: true,
     },
     inputSchema: {
+      max_charge_usd: z.number().min(0).optional().describe("Optional. The run stops before the next result that would take this run's charges over this amount, and keeps every result already charged. Leave empty to rely only on the maximum cost per run you set in Apify."),
       company_domain: z
         .string()
         .optional()
@@ -252,7 +253,7 @@ server.registerTool(
         ),
     },
   },
-  async ({ company_domain, company_name, domains, batchSize, includeFirmographics, skipCache }) => {
+  async ({ company_domain, company_name, domains, batchSize, includeFirmographics, skipCache, max_charge_usd }) => {
     if (
       (company_domain === undefined || company_domain === "") &&
       (company_name === undefined || company_name === "") &&
@@ -267,6 +268,7 @@ server.registerTool(
       "3HtnSaqPHOg1Qg5gx",
       "Domain to LinkedIn URL Resolver",
       compact({
+        max_charge_usd,
         company_domain,
         company_name,
         domains,
